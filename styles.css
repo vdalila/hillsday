@@ -1,0 +1,239 @@
+/* Reset e configuração básica */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    width: 100%;
+    min-height: 100vh;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    background: linear-gradient(#9485f4, #7fff62);
+    animation: changeBg 6s linear infinite;
+}
+
+@keyframes changeBg {
+    0% {
+        backdrop-filter: hue-rotate(0deg);
+    }
+    100% {
+        backdrop-filter: hue-rotate(360deg);
+    }
+}
+
+/* Estilos para a mensagem */
+.message {
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+    text-align: center;
+    font-family: "Poppins", sans-serif;
+    font-size: 2em;
+    z-index: 3;
+    opacity: 0.75;
+    transform: translateY(-150px);
+}
+
+span {
+    margin: 0.2em;
+    user-select: none;
+}
+
+.cube {
+    text-align: center;
+    width: 50px;
+    height: 50px;
+    background: var(--clr);
+}
+
+/* Estilos para o bolo */
+.cake {
+    width: 400px;
+    height: 400px;
+    position: absolute;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    z-index: 2;
+    animation: upDown 4s ease-in-out infinite;
+    position: relative; /* Adicionado para posicionar o nome corretamente */
+}
+
+@keyframes upDown {
+    0%, 100% {
+        transform: translateY(0px);
+    }
+    50% {
+        transform: translateY(-20px);
+    }
+}
+
+.layer {
+    width: 300px;
+    height: 75px;
+    position: relative;
+    background: #fe864a;
+    border-top-left-radius: 25px;
+    border-top-right-radius: 25px;
+    overflow: hidden;
+    transform: translateY(87px);
+}
+
+.layer::before {
+    content: '';
+    position: absolute;
+    background: #eee27c;
+    width: 100%;
+    height: 5px;
+    transform: translateY(50px);
+}
+
+.layer::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 30px;
+    background: linear-gradient(rgb(252, 163, 163), transparent);
+    border-radius: 20px;
+    border-bottom-right-radius: 0;
+    border-bottom-left-radius: 0;
+    background-size: 20%;
+}
+
+.cream {
+    width: 60px;
+    height: 30px;
+    position: absolute;
+    border-radius: 30px;
+    background: #e6fe4a;
+    border-top-right-radius: 0;
+    border-top-left-radius: 0;
+    transform: translateX(calc(60px * var(--i)));
+    animation: move 4s ease-in-out infinite;
+}
+
+@keyframes move {
+    0%, 100% {
+        transform: translateX(calc(60px * var(--i)));
+    }
+    50% {
+        transform: translateX(calc(40px * var(--i)));
+    }
+}
+
+div .layer:nth-child(1) {
+    width: 200px;
+    filter: hue-rotate(260deg);
+}
+
+div .layer:nth-child(2) {
+    width: 250px;
+    filter: hue-rotate(324deg);
+}
+
+.candle {
+    width: 8px;
+    height: 40px;
+    background: #f57647;
+    position: absolute;
+    border-radius: 5px;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+    transform: translateY(-45px);
+}
+
+.candle::before {
+    content: '';
+    position: absolute;
+    width: 12px;
+    height: 12px;
+    background: #fe4a4a;
+    border-radius: 50%;
+    border-top-right-radius: 0;
+    transform: rotate(-45deg) translate(9px, -12px);
+}
+
+/* Estilos para o nome no bolo */
+.name {
+    font-family: 'Caveat', cursive;
+    font-size: 2em;
+    font-weight: 600;
+    color: #0026e4;
+    text-align: center;
+    text-transform: capitalize;
+    position: absolute;
+    z-index: 1000000000;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+/* Estilos para o prato do bolo */
+.plate {
+    width: 400px;
+    height: 60px;
+    background: #d7d7d7;
+    position: absolute;
+    border-radius: 50%;
+    transform: translateY(210px);
+    justify-content: center;
+    align-items: center;
+    display: flex;
+}
+
+.plate::before {
+    content: '';
+    position: absolute;
+    width: 65%;
+    height: 65%;
+    border-radius: 50%;
+    background: #e4e4e4;
+    box-shadow: inset 10px 10px 10px #bbbbbb;
+    z-index: 4;
+}
+
+.plate::after {
+    content: '';
+    position: absolute;
+    width: 60%;
+    height: 60%;
+    border-radius: 33%;
+    background: #d7d7d7;
+    transform: translateY(20px);
+    z-index: 3;
+}
+
+#balloons {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    z-index: 1;
+}
+
+.balloon {
+    width: 50px;
+    height: 70px;
+    position: absolute;
+    background: #e9a7cf;
+    border-radius: 50% 50% 0 0;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    transform: rotate(-10deg);
+    animation: float 5s ease-in infinite;
+}
+
+@keyframes float {
+    0% {
+        transform: translateY(0) rotate(-10deg);
+    }
+    100% {
+        transform: translateY(-100vh) rotate(-10deg);
+    }
+}
